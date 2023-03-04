@@ -1,6 +1,6 @@
 package funcIntr;
 
-public class Student {
+public class Student implements Comparable<Student>{
 	
 	private int Roll;
 	private String Name;
@@ -44,6 +44,15 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [Roll=" + Roll + ", Name=" + Name + ", marks=" + marks + "]";
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		if(this.Roll >o.Roll) return 1;
+		
+		else if(this.Roll <o.Roll) return -1;
+		
+		else return 0;
 	}
 	
 	
