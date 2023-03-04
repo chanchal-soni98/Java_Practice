@@ -1,0 +1,28 @@
+ques5
+Q5/- What do you mean by Method Reference, How to refer static method,
+ nonstatic method and constructor, explain each one with proper example.
+
+
+ Ans - It is a feature of java 8. Using existing method write your code in easy and short way or we can compact form of lambda expression.
+ It is used to refer methods of functional interface like - static method, nonstatic method and constructor.
+
+ method reference syntax: ObjectName :: methodName;
+
+ 1. Static method - by this static method can refer.
+
+ class staticMethod{
+
+ 	public static void methodName(){
+
+      //body
+ 	}
+ 	staticMethod ::methodName;
+ }
+
+ 2. nonStatic or instance Method-  in this method reference you can refer nonstatic or instance method.
+
+     ObjectName :: instanceMethodName;
+
+ 3.Constructor - If you want to refer constructor, use constructor method reference.
+
+   className :: new;

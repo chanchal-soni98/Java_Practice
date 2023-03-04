@@ -1,0 +1,39 @@
+Q1/- What is the requirement of Java Database communication?
+ans - first you must register the driver in your program before you use it. 
+Regitering the driver isthe process by which the oracle's class file is loaded into the memory, so it can be utilzed as an implwmentation of the JDBC interfaces. 
+
+Q2/- What is JDBC, Write a note on JDBC driver software.
+ans - JDBC stands for java database connectivity is the javasoft specification of a standard programming interface
+that allows java programs to access database management systems. 
+It provides a standard way to access data using the java programming languages. 
+Using JDBC, an application can access a variety of databaese and run on any platform with a java virtual machine.
+
+Q3/- Write a Jdbc application to establish the connection with the Mysql database.
+ans - 
+
+create database jdbc;  
+use jdbc;  
+create table emp(id int(10),name varchar(20),age int(3));
+
+import java.sql.*;  
+class Mysql{  
+public static void main(String args[]){  
+try{  
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/jdbc","root","root");  
+ 
+Statement stmt=con.createStatement();  
+ResultSet rs=stmt.executeQuery("select * from emp");  
+while(rs.next())  
+System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+con.close();  
+}catch(Exception e){ System.out.println(e);}  
+}  
+}  
+
+Q4/- Write down the responsibilities of the Jdbc Client.
+ans - The JDBC API is a Java API that can access any kind of tabular data,
+ especially data stored in a relational database. JDBC helps you to write Java applications 
+
+cdthat manage these three programming activities: Connect to a data source, like a database. Send queries and update statements to the database.

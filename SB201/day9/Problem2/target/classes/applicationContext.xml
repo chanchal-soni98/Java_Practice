@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		
+	<bean id="e" class="com.masai.Employee"> 
+	    <constructor-arg name="empId" value="1"/>
+	    <constructor-arg name="empName" value="ram"/>
+	    <constructor-arg name="address" value="delhi"/>
+	    <constructor-arg name="salary" value="80000"/>
+    </bean>
+    
+     <bean id="d"  class="com.masai.Department"> 
+	    <constructor-arg name="deptId" value="1"/>
+	    <constructor-arg name="deptName" value="sales"/>
+	    <constructor-arg name="location" value="Raj"/>
+    </bean>
+    
+    
+        <bean id="demo"  class="com.masai.Demo" scope="prototype" init-method="myInit" destroy-method="cleanUp" lazy-init="true">
+        <property name="theMap">
+		    <map>
+		       <entry key-ref="d" value-ref="e"/>
+		      
+		        
+		    </map>
+       </property>
+    </bean>
+
+
+</beans>

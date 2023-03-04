@@ -1,0 +1,17 @@
+Q3/- What is the Difference between the sleep and join method explain with one example.
+<<<<<<< HEAD
+
+ans . There is a difference between join() and sleep().
+      Join() will wait until the timeout expires or the thread finishes. sleep() will just wait for the specified amount of time unless interrupted.
+      So it is perfectly possible for join() to return much faster than the specified time.
+
+      The join() method of a Thread instance is used to join the start of a thread’s execution to the end of another thread’s execution such that
+      a thread does not start running until another thread ends.
+
+      Causes the currently executing thread to sleep for the specified number of milliseconds,
+      subject to the precision and accuracy of system timers and schedulers.
+=======
+ans - There is a difference between join() and sleep(). join() will wait until the timeout expires or the thread finishes. sleep() will just wait for the specified amount of time unless interrupted.
+So it is perfectly possible for join() to return much faster than the specified time.
+
+>>>>>>> 75e1c8ba9ee3844e0b75e89648f9450337597304

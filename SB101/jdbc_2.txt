@@ -1,0 +1,235 @@
+Q1/- What is the difference between Statment and PreparedStatement?
+ans - 
+
+1. Statement : 
+It is used for accessing your database. Statement interface cannot accept parameters and useful when you are using static SQL statements at runtime. 
+If you want to run SQL query only once then this interface is preferred over PreparedStatement. 
+You can not pass parameters at runtime.
+Used for CREATE, ALTER, DROP statements
+Performance is very low.
+It is base interface.	
+
+
+2. PreparedStatement : 
+It is used when you want to use SQL statements many times. The PreparedStatement interface accepts input parameters at runtime. 
+You can pass parameters at runtime.
+Used for the queries which are to be executed multiple times.
+Performance is better than Statement.
+	It extends statement interface.
+
+
+Q2/- Q2/- Consider the following table :
+Product
+pid int primary key
+pname varchar not null
+quantity int
+price int
+● Write a Jdbc application to insert 5 different types of Products by taking input from
+the User.
+package basicjdbc;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Product Id");
+		int pid= sc.nextInt();
+		System.out.println("Product Name");
+		String pname= sc.next();
+		System.out.println("Product Quantity");
+		int  quanity= sc.nextInt();
+		System.out.println("Product Price");
+		int  price= sc.nextInt();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String url="jdbc:mysql://localhost:3306/jdbc2";//database.
+		try(Connection con = DriverManager.getConnection(url, "root", "Soni@123")) {
+			
+			PreparedStatement ps = con.prepareStatement("insert into product values(?,?,?,?)");
+		       	ps.setInt(1,pid);
+		       	ps.setString(2,pname);
+		    	ps.setInt(3,quanity);
+		    	ps.setInt(4,price);
+		    	
+		    	int p = ps.executeUpdate();
+		    	if(p>0)
+		    		{
+		    		System.out.println("record updated");
+		    		}
+		    	else 
+		    		{
+		    		System.out.println("Can't Inserted......");
+		    		}
+		    	
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
+
+● Write a Jdbc application to insert a new Product without quantity and price by taking
+input from the user.
+package basicjdbc;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class insertTWo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Enter the Product id: ");
+    	int pid = sc.nextInt();
+    	
+    	System.out.println("Product quantity to update ");
+    	int  quantity= sc.nextInt();
+    	System.out.println("Product Price to update ");
+    	int  price= sc.nextInt();
+    	
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+		  String url ="jdbc:mysql://localhost:3306/jdbc2" ;
+		  
+		  try(Connection con =DriverManager.getConnection(url,"root", "Soni@123")) {
+	
+			  PreparedStatement ps= con.prepareStatement("update product set quantity=?,price=? where pid= ?");
+			  ps.setInt(1, quantity);
+			  ps.setInt(2,price);
+			  ps.setInt(3, pid);
+			  
+			  int p = ps.executeUpdate();
+			  if(p>0)
+			  {
+				  System.out.println("updated");
+			  }
+			  else 
+			  {
+				  System.out.println("Not updated"); 
+			  }
+			  
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
+
+● Write a Jdbc application to update the price and quantity of a product name by taking the
+input from the user.
+package basicjdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class updateByName {
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+	    	Scanner sc = new Scanner(System.in);
+	    	System.out.println("Enter the Product Name: ");
+	    	String pname = sc.next();
+	    	
+	    	System.out.println("Product quantity to update ");
+	    	int  quantity= sc.nextInt();
+	    	System.out.println("Product Price to update ");
+	    	int  price= sc.nextInt();
+	    	
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+			  String url ="jdbc:mysql://localhost:3306/jdbc2" ;
+			  
+			  try(Connection con =DriverManager.getConnection(url,"root", "Soni@123")) {
+		
+				  PreparedStatement ps= con.prepareStatement("update product set quantity=?,price=? where pname= ?");
+				  ps.setInt(1, quantity);
+				  ps.setInt(2,price);
+				  ps.setString(3, pname);
+				  
+				  int p = ps.executeUpdate();
+				  if(p>0)
+				  {
+					  System.out.println("updated");
+				  }
+				  else 
+				  {
+					  System.out.println("Not updated"); 
+				  }
+				  
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+
+		}
+
+	}
+
+
+
+● Write a Jdbc application to delete all the Products whose quantity is less than 2
+package basicjdbc;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//import java.util.Scanner;
+public class deleteProduct {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+			  String url ="jdbc:mysql://localhost:3306/jdbc2" ;
+			  
+			  try(Connection con =DriverManager.getConnection(url,"root", "Soni@123")) {	
+				  PreparedStatement ps= con.prepareStatement("Delete from product where quantity<2 ");
+				  				  
+				  int p= ps.executeUpdate();
+				  if(p>0)System.out.println("Deleted sucsessfully");
+				  else System.out.println("NO"); 
+				  
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+
+	}
+
+}
+

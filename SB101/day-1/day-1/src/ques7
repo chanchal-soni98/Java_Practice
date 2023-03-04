@@ -1,0 +1,15 @@
+Q7/-Explain about the Method Reference, How many ways we can refer to an
+existing implementation explain with examples.
+
+Ans -  Method reference is used to refer method of functional interface.
+It is compact and easy form of lambda expression. Each time when you are using
+lambda expression to just referring a method, you can replace your lambda expression with method reference.
+
+Types of Method References...
+
+There are following types of method references in java:
+
+1. Reference to a static method - ClassName::staticMethodName
+2. Reference to an instance method - ObjectName_class::instanceMethodName
+3. Reference to a constructor - ClassName::new
+

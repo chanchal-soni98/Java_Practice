@@ -1,0 +1,14 @@
+Q1. What do you mean by Functional programming and Functional interface?
+
+ans = Functional programming is introduced in Java 8. 
+
+Functions are treated as first class citizens or functions can be treated as a value. We can assign
+function to the reference variable or we can pass function to another function's parameter, we can return
+function from another functions it is call called as function programming. 
+In this mainly we deal with functions.
+Functional programming is the combinations of small small function and it created complex function.
+
+
+Function Interface: Interface is called a functional interface if interface contains only one abstract method.
+At the same it can contain n number of static and n numbers of default methods but only one abstract method must be 
+there.  

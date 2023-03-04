@@ -1,0 +1,9 @@
+Q4/- Write down the responsibilities of the Jdbc Client.
+
+Answer - The JDBC client provides access to the data server from Java and Java-based tools.
+
+Simply, JDBC makes it possible to do the following things within a Java application:
+
+Establish a connection with a data source
+Send queries and update statements to the data source
+Process the results

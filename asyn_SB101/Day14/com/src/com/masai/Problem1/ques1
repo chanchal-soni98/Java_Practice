@@ -1,0 +1,12 @@
+Q1/- What is the requirement of Java Database communication?
+
+Answer 
+1. It is an interface or channel between java program and database.
+i.e it act as link between the two(java program and database)
+so that a programmer could send data from java code and store it in the database
+for future use.
+ 
+ JDBC is an advancement for ODBC, ODBC is platform-dependent had a lot of drawbacks.
+ ODBC is written in C. Java is platform-dependent. JDBC was developed to remove dependency.
+ 
+ 

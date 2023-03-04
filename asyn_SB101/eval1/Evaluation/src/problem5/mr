@@ -1,0 +1,21 @@
+Q.1/-  What do you mean by Method Reference, How to refer static method, non-static method and 
+constructor,
+ implement the following interface using Method reference using static method, non-static method 
+ and constructor example:
+ 
+ Ans :  It is a way to simplify your code and save your time. It is used to refer method of functional interface.
+ It is compact and easy from Lambda Expression. 
+ It is used for the replacement of a single method.
+ 
+ Refer static method:
+ 
+ className::staticMethodName .
+ 
+ Non-static method
+ 
+ objName :: methodName
+ 
+ 
+ constructor
+ 
+ className :: new

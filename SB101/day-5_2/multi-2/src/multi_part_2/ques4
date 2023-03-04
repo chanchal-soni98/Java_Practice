@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+Q4/ What is the difference between a synchronized method and a synchronized block?
+ans .
+ If you declare a method to be synchronized, then the entire body of the method becomes synchronized; if you use the synchronized block, however,
+ then you can surround just the “critical section” of the method in the synchronized block, while leaving the rest of the method out of the block.
+=======
+q4. What is the difference between a synchronized method and a synchronized block?
+
+If you declare a method to be synchronized, then the entire body of the method becomes synchronized; if you use the synchronized block, however, then you can surround just the
+“critical section” of the method in the synchronized block, while leaving the rest of the method out of the block.
+>>>>>>> 75e1c8ba9ee3844e0b75e89648f9450337597304

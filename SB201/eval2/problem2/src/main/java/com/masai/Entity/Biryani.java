@@ -1,0 +1,52 @@
+package com.masai.Entity;
+
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Biryani {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int BiryaniId;
+	private int rating;
+	public int getBiryaniId() {
+		return BiryaniId;
+	}
+	public void setBiryaniId(int biryaniId) {
+		BiryaniId = biryaniId;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	@Override
+	public String toString() {
+		return "Biryani [BiryaniId=" + BiryaniId + ", rating=" + rating + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(BiryaniId, rating);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Biryani other = (Biryani) obj;
+		return BiryaniId == other.BiryaniId && rating == other.rating;
+	}
+	
+	
+}

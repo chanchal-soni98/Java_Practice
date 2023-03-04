@@ -1,0 +1,40 @@
+CREATE TABLE customers (
+customer_id INT PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+address VARCHAR(255) DEFAULT NULL,
+city VARCHAR(255) DEFAULT NULL,
+state VARCHAR(2) DEFAULT NULL,
+zip_code VARCHAR(5) DEFAULT NULL
+);
+
+CREATE TABLE orders (
+order_id INT PRIMARY KEY,
+customer_id INT NOT NULL,
+order_placed_date DATE NOT NULL,
+FOREIGN KEY (customer_id) REFERENCES customers
+(customer_id)
+);
+
+mysql> select * from customers;
++-------------+------------+-----------+--------------+------------+-----------+-------+----------+
+| customer_id | first_name | last_name | email        | address    | city      | state | zip_code |
++-------------+------------+-----------+--------------+------------+-----------+-------+----------+
+|           1 | abc        | a         | abc@mail.com | 1st street | chennai   | TN    | 40002    |
+|           2 | efg        | e         | efg@mail.com | 2st street | bangalore | KA    | 50002    |
+|           3 | ijk        | i         | ijk@mail.com | 3st street | mumbai    | MH    | 60002    |
++-------------+------------+-----------+--------------+------------+-----------+-------+----------+
+3 rows in set (0.01 sec)
+
+mysql> select * from orders;
++----------+-------------+-------------------+
+| order_id | customer_id | order_placed_date |
++----------+-------------+-------------------+
+|        1 |           1 | 2016-11-11        |
+|        2 |           1 | 2016-10-01        |
+|        3 |           2 | 2016-06-01        |
+|        4 |           2 | 2015-06-01        |
+|        5 |           1 | 2015-06-01        |
++----------+-------------+-------------------+
+5 rows in set (0.00 sec)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		
+		<bean id="t" class="com.masai.Tourist">
+			<constructor-arg name="name" value="soni"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="aadhar_id" value="123456778978"/>
+		</bean>
+		
+				
+		<bean id="hp" class="com.masai.HolidayPackage">
+			<property name="package_name" value="chanchal"/>
+			<property name="tourist" ref="t"/>
+			<property name="package_expiry" value="2017-01-14"/>
+			<property name="package_price" value="67"/>
+		</bean>
+</beans>

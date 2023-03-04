@@ -1,0 +1,28 @@
+Q4/- What are the features of Stream API in Java explain some of the intermediate
+and terminal methods of Stream object with one example.
+
+Ans.
+Stream APi...
+1.created using a collection and array.
+2. you cant change the data in stream api.
+3.you can manuplate using lambda expression.
+5. it is not a data structure.
+
+Intermediate methods: returns another stream.
+ a. filter-It is a one of the intermediate method of stream api. In which you can apply filter and extract your data.
+ it will return your data.
+
+ b. sorting- By this you can sort your data in assending and desending order.
+ example - Collections.sort(list);
+
+ c. map- By this you can map you data. It is kind of object.
+
+
+Terminal methods: do not take any argument.
+a. forEach- it is kind of for loop you can perform your task on each element.you can apply if on the array.
+example - array.forEach(int s: array){
+	System.out.println(s);
+}
+b. min- To find min.
+c. max- To find max.
+

@@ -1,0 +1,319 @@
+ques1
+1. create table DEPOSIT(actno varchar(25), cname varchar(20),bname varchar(20),amount int, adate da);
+2. create table BRANCH(bname varchar(20), city varchar(20));
+3. create table CUSTOMER(cname varchar(20), city varchar(20));
+4. create table Borrow(loanno varchar(5),cname varchar(20),bname varchar(20), amount int);
+
+=====================================
+
+- mysql> show tables;
++----------------+
+| Tables_in_day1 |
++----------------+
+| borrow         |
+| branch         |
+| customer       |
+| deposit        |
++----------------+
+4 rows in set (0.00 sec)
+mysql> desc borrow;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| loanno | varchar(5)  | YES  |     | NULL    |       |
+| cname  | varchar(20) | YES  |     | NULL    |       |
+| bname  | varchar(20) | YES  |     | NULL    |       |
+| amount | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> desc branch;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| bname | varchar(20) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc customer;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| cname | varchar(20) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc deposit;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| actno  | varchar(25) | YES  |     | NULL    |       |
+| cname  | varchar(20) | YES  |     | NULL    |       |
+| bname  | varchar(20) | YES  |     | NULL    |       |
+| amount | int         | YES  |     | NULL    |       |
+| adate  | date        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+============================================
+
+
+
+ques2. 
+mysql> insert into deposit values (100,'ANIL','VRCE', 1000.00,'1995-03-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into deposit values (101,'SUNIL','MGROAD', 5000.00,'1996-01-04');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into deposit values (102,'RAHUL','KAROLBAGH', 3500.00,'1997-11-17');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into deposit values (103,'MADHURI','CHANDNI', 1200.00,'1995-12-17');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into deposit values (104,'PRAMOD','MGROAD', 3000.00,'1996-03-27');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into deposit values (105,'SANDIP','KAROLBAGH', 1200.00,'1996-03-31');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNANE   | BNANE     | Amount | Adate      |
++-------+---------+-----------+--------+------------+
+| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1997-11-17 |
+| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLBAGH |   1200 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+
+mysql> insert into borrow values(375,'PRAMOD','MGROAD',8000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrow values(321,'MADHURI','CHANDNI',2000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into borrow values(311,'SUNIL','MGRAOD',3000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into borrow values(206,'RAHUL','KAROLBAGH',5000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into borrow values(201,'ANIL','VRCE',1000.00);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from borrow;
++--------+---------+-----------+--------+
+| LOANNO | CNAME   | BNAME     | AMOUNT |
++--------+---------+-----------+--------+
+| 375    | PRAMOD  | MGROAD    |   8000 |
+| 321    | MADHURI | CHANDNI   |   2000 |
+| 311    | SUNIL   | MGRAOD    |   3000 |
+| 206    | RAHUL   | KAROLBAGH |   5000 |
+| 201    | ANIL    | VRCE      |   1000 |
++--------+---------+-----------+--------+
+
+mysql> create table BRANCH(bname varchar(20), city varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into branch values('VRCE','NAGPUR');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into branch values('KAROLBAGH','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into branch values('CHANDNI','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into branch values('MGROAD','BANGALORE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * branch;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'branch' at line 1
+mysql> select * from branch;
++-----------+-----------+
+| bname     | city      |
++-----------+-----------+
+| VRCE      | NAGPUR    |
+| KAROLBAGH | DELHI     |
+| CHANDNI   | DELHI     |
+| MGROAD    | BANGALORE |
++-----------+-----------+
+4 rows in set (0.00 sec)
+mysql> INSERT INTO CUSTOMER VALUES('ANIL','CALCUTA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('RAHUL','BARODA');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('MADHURI','NAGPUR');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('PRAMOD','NAGPUR');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('SUNIL','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++---------+---------+
+| cname   | city    |
++---------+---------+
+| ANIL    | CALCUTA |
+| RAHUL   | BARODA  |
+| MADHURI | NAGPUR  |
+| PRAMOD  | NAGPUR  |
+| SUNIL   | DELHI   |
++---------+---------+
+5 rows in set (0.00 sec)
+
+====================================
+
+QUES4. 4.Retrieve all the records from the table BORROW where amount in between
+2000 and 3000
+
+ANS . SELECT * FROM BORROW WHERE AMOUNT BETWEEN 2000 AND 3000;
++--------+---------+---------+--------+
+| LOANNO | CNAME   | BNAME   | AMOUNT |
++--------+---------+---------+--------+
+| 321    | MADHURI | CHANDNI |   2000 |
+| 311    | SUNIL   | MGRAOD  |   3000 |
++--------+---------+---------+--------+
+
+========================================
+
+
+5. Retrieve the details from the table DEPOSIT.
+ANS . SELECT * FROM DEPOSIT;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNANE   | BNANE     | Amount | Adate      |
++-------+---------+-----------+--------+------------+
+| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1997-11-17 |
+| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLBAGH |   1200 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+
+
+
+========================================
+
+6. Retrieve the customer name, account no of DEPOSIT
+ANS -  select cnane,actno from deposit;
++---------+-------+
+| cnane   | actno |
++---------+-------+
+| ANIL    | 100   |
+| SUNIL   | 101   |
+| RAHUL   | 102   |
+| MADHURI | 103   |
+| PRAMOD  | 104   |
+| SANDIP  | 105   |
++---------+-------+
+6 rows in set (0.00 sec)
+
+
+========================================
+7. Retrieve the name of the customer living in NAGPUR.
+ans - select cname from customer where city='nagpur';
++---------+
+| cname   |
++---------+
+| MADHURI |
+| PRAMOD  |
++---------+
+
+
+=========================================
+8. Retrieve the name of the customers who opened account after 17-NOV-95.
+
+ans . 
+
+9. Retrieve the account number and amount of the customer having account opened between
+01-12-95 and 01-06.96.
+
+
+select Bnane ,Amount from deposit where Adate between '1995-12-01' and '1996-06-01';
++-----------+--------+
+| Bnane     | Amount |
++-----------+--------+
+| MGROAD    |   5000 |
+| CHANDNI   |   1200 |
+| MGROAD    |   3000 |
+| KAROLBAGH |   1200 |
++-----------+--------+
+
+10. Retrieve all the records from the table DEPOSIT where CNAME begins
+with C.
+ans 
+SELECT * FROM deposit WHERE Aname LIKE 'c%'; 
+
+
+11. Retrieve all the records from the table BORROW where 2nd character of
+CNAME is U.
+ans
+	SELECT * FROM BORROW WHERE CNAnE LIKE '_U%
+
+
+
+12. Retrieve all the records from the table DEPOSIT where branch name is
+CHANDNI or MGROAD.
+ans
+	select * from deposit where Anane in('chandanni','mgroad');	
+		
+	
+
+13. Retrieve all the records from the table DEPOSIT where branch name is not
+ans
+	select * from deposit where not (Anane in ('chandani','mgroad'));
+		
+
+14. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in
+ascending order
+ans
+	select * from deposit where amount >1000 order by Anane ASc;
+
+	
+
+15. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in
+descending order
+ans
+	select * from deposit where amount >1000 order by Anane desc;
+		
+
+16. Retrieve customer details from BORROW table where the third character of
+the customer name is either ‘A’ or ‘D’
+	
+	select * from borrow where cnane like 'a%' or cnane lIke 'd%';
+		
+
+17. Retrieve all the records from the table BORROW where amount is not
+between 2000 and 8000.
+ans
+	SELECT * FROM BORROW WHERE NOT (AMOUNT BETWEEN 2000 AND 8000);
+	
+
+18. Find out the unique records from the table DEPOSIT
+ans
+	select distinct actno,cnane,anane,amount,adate from deposit;
+
+
+
+19. Update the amount of all depositors in deposit table by giving them 10% interest (i.e.
+ans
+	amount=amount * 0.1) where branch is VRCE.
+	update deposit set amount =amount *0.1 where aname= 'vrce';
+	
+20. Update the amount of all depositors in deposit table by giving them 10% interest where
+ans
+	branch is VRCE and customer name ANIL.
+	update deposit set amount=amount*0.1 where Aname='vrce' and cname ='anil';
+

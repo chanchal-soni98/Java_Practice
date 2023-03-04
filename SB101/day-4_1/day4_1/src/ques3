@@ -1,0 +1,4 @@
+Q3) Differentiate between process and thread based multitasking.
+A process is a program under execution i.e an active program. A thread is a lightweight process that can be managed independently by a scheduler.
+Processes require more time for context switching as they are more heavy.
+Threads require less time for context switching as they are lighter than processes.

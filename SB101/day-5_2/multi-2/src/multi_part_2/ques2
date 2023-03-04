@@ -1,0 +1,12 @@
+Q2/- What is a Race condition, How will you solve the Race condition,explain with an
+Example.
+ans .
+      A race condition occurs when two threads access a shared variable at the same time. The first thread reads the variable,
+      and the second thread reads the same value from the variable.
+      The usual solution to avoid race condition is to serialize access to the shared resource. If one process gains access first,
+      the resource is "locked" so that other processes have to wait for the resource to become available.
+
+       a race condition can be defined as, a condition in which two or more threads compete together to get certain shared resources.
+
+            For example, if thread A is reading data from the linked list and another thread B is trying to delete the same data.
+            This process leads to a race condition that may result in run time error.

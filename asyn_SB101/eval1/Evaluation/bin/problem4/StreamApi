@@ -1,0 +1,26 @@
+Q4 What are the features of Stream API in Java explain some of the intermediate
+and terminal methods of Stream object with one example.
+
+ans : 1. Stream is not a data structure , Stream Api is the flow of data in the form of objects.
+2. Stream Api deal with low level data like binary or character data.
+3. Stream Api takes input from the collection, Arrays.
+4. Stream dont change the original data, they only provide the result as per pipelined methods.
+
+5. return stream as a result.
+
+Intermediate methods:  it returns stream itself. Cant execute before terminal operations.
+
+Stream<T>distinct()
+
+
+example : 1 map : Function<T>
+2. filter: It is kind of Predicate : Predicate<T>
+3. sorted: (Comparator<T>)
+
+
+Terminal methods :  It return either value or side product.
+ Terminal operations are executed as and when it is invoked.
+1. collect
+2. forEach
+3. reduce
+4.

@@ -1,0 +1,7 @@
+Q1/ - Write down some predefined Functional interfaces in the java library at least 4 interfaces, with their methods.
+Ans - Predefined functional interfaces that are ubiquitous in the Java 8 world, such as:
+
+      1. Consumer- public void accept(Object o);
+      2. Supplier- public object grt();
+      3. Predicate- public boolean test(Object o);
+      4. Function- public Object apply(Object o);

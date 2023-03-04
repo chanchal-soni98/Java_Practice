@@ -1,0 +1,7 @@
+Q1/ What is the Difference between Comparable and Comparator? Explain with
+examples.
+1) Comparable provides a single sorting sequence.
+   In other words, we can sort the collection on the basis of a single element such as id, name, and price.
+
+   The Comparator provides multiple sorting sequences.
+   In other words, we can sort the collection on the basis of multiple elements such as id, name, and price etc.

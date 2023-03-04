@@ -1,0 +1,13 @@
+Q6: What is the difference between Runnable and Callable interface?
+ans -
+Runnable - It is a functional interface.
+package : java.lang
+it has run method.
+It can be used for small execution of program.
+it  can not return.
+
+Callable - It is a functional interface.
+package : java.util.
+it has call method.
+It can be used for bigger execution of program.
+it can return.
