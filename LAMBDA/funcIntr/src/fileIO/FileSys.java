@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class FileSys {
 
@@ -69,9 +70,23 @@ public class FileSys {
 		System.out.println(line);
 		line=br.readLine();
 		}
-		br.close();
+//		br.close();
 
 		}
+		PrintWriter pw=new PrintWriter(fw);
+		PrintWriter pw1=new PrintWriter(file);
+		PrintWriter pw2=new PrintWriter(fw);
+		
+		
+		PrintWriter out=new PrintWriter("abc.txt");
+		out.write(100);//d will be added
+		out.println(100);
+		out.println(true);
+		out.println('c');
+		out.println("amit");
+		out.flush(); //need not call the flush method
+		out.close();
+		System.out.println("done..");
 	}
 
 }
