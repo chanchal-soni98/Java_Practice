@@ -3,6 +3,8 @@ package fileIO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -87,6 +89,18 @@ public class FileSys {
 		out.flush(); //need not call the flush method
 		out.close();
 		System.out.println("done..");
+		
+		
+		FileInputStream fis=new FileInputStream("d://img.jpg");
+		FileOutputStream fos=new FileOutputStream("d://img1.jpg");
+		int j=fis.read();
+		while(j != -1){
+		fos.write(j);
+		j=fis.read();
+		}
+		fos.flush();
+		fos.close();
+		fis.close();
 	}
 
 }
